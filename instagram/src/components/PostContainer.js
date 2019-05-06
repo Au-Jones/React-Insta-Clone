@@ -1,11 +1,10 @@
 import React from 'react';
-import Comment from './CommentSection'
+import Post from './Post';
+import'./Post.css';
 const PostContainer = (props) => {
     return (
-        <div>
-            {props.InstaData.map(item => {
-                return <Comment eachComment={item} key={item.id} />
-            })}
+        <div className = 'posts-container'>
+            {props.posts.map(p => <Post Key={p.imageUrl} post={p} />)} 
         </div>
     );
 };
