@@ -1,3 +1,8 @@
+import React from 'react';
+import PostContainer from './components/PostContainer';
+import './insta.css';
+import search from './components/SearchBar'
+
 const dummyData = [
     {
         id: "a",
@@ -95,5 +100,21 @@ const dummyData = [
         ]
     }
 ];
+
+class dummyData extends React.Component {
+    constructor() {
+        super()
+        this.state={
+            InstaData: dummyData
+        };
+    }
+    render() {
+        return (
+            <div className='dummyData'>
+            <PostContainer InstaData ={this.state.InstaData}/>
+            </div>
+        );
+    }
+}
 
 export default dummyData;
