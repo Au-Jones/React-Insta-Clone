@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentSection from './CommentSection';
 import PostTop from './PostTop';
-
+import likeSection from './likeSection';
 
 const Post = props => {
     return (
