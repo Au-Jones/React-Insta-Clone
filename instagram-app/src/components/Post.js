@@ -1,12 +1,12 @@
 import React from 'react';
-import CommentSection from '../CommentSection/CommentSectionContainer';
+import CommentSection from './CommentSection';
 import PostTop from './PostTop';
-import'./Post.css'
+
 
 const Post = props => {
     return (
       <div className="post-border">
-        <PostHeader
+        <PostTop
           username={props.post.username}
           thumbnailUrl={props.post.thumbnailUrl}
         />

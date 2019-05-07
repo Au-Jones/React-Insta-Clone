@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import dummyData from './dummy-data';
 import PostsContainer from './components/PostContainer';
-import SearchBar from './components/SearchBar/SearchBar';
+import SearchBar from './components/SearchBar';
 
 
 
@@ -14,6 +14,10 @@ class App extends Component {
       posts: dummyData
     };
   }
+    componentDidMount() {
+      this.setState({post: dummyData});
+    }
+  
   render() {
     return (
       <div className="App">

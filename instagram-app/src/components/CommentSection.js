@@ -15,7 +15,7 @@ class Comments extends React.Component {
         return (
             <div>
                 {this.state.comments.map((c ,i) => <Comment key = {i} comment={c} />)}
-                <CommentInput />
+                <NewComment />
             </div>
         );
     }

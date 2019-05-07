@@ -5,7 +5,7 @@ import './Comment.css';
 const Comments = props => {
     return (
         <div className='com-text'>
-        <span className='Comment'> {props.Comment.text}</span>{''}
+        <span className='comment'> {props.comment.text}</span>{''}
         <span className='user'>-{props.comment.username}</span>
         </div>
     );
