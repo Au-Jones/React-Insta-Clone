@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import dummyData from './dummy-data';
@@ -14,18 +14,25 @@ class App extends Component {
       posts: dummyData
     };
   }
-    componentDidMount() {
-      this.setState({post: dummyData});
-    }
-  
-  render() {
-    return (
-      <div className="App">
-        <SearchBar />
-        <PostsContainer posts={this.state.posts} />
-      </div>
-    );
+  componentDidMount() {
+    this.setState({ post: dummyData });
   }
-}
+  FindPostHandler = () => {
+    const post = this.state.posts.filter(p => {
+      if (p.username.includes(e.target.value)) {
+        return p;
+      }
+    });
 
-export default App;
+
+    render() {
+      return (
+        <div className="App">
+          <SearchBar />
+          <PostsContainer posts={this.state.posts} />
+        </div>
+      );
+    }
+  }
+
+  export default App;
