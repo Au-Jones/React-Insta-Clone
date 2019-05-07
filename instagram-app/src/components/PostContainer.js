@@ -3,8 +3,8 @@ import Post from './Post';
 
 const PostContainer = (props) => {
     return (
-        <div className = 'posts-container'>
-            {props.posts.map(p => <Post Key={p.imageUrl} post={p} />)} 
+        <div className = 'post-container'>
+            {props.post.map(p => <Post Key={p.imageUrl} post={p} />)} 
         </div>
     );
 };

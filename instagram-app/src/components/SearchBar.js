@@ -8,7 +8,7 @@ const search = () => {
           <img alt="instagram logo" src={IGLogo} className="logo-image" />
         </div> */}
         <div>
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" onKeyDown={PaymentResponse.searchPost} />
         </div>
         <div className="social-Container">
           <div className="social">
