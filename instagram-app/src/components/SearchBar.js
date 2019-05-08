@@ -1,12 +1,11 @@
 import React from 'react'
-// import IGLogo from '../assets/' ;
-import './searchbar.css';
-const search = () => {
+
+// import './searchbar.css';
+
+const search = props => {
     return (
         <div className="search-bar">
-        {/* <div className="image">
-          <img alt="instagram logo" src={IGLogo} className="logo-image" />
-        </div> */}
+       
         <div>
           <input type="text" placeholder="Search" onKeyDown={PaymentResponse.searchPost} />
         </div>
