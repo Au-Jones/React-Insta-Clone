@@ -14,18 +14,31 @@ class CommentSection extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.postId
-
-
-
+        const id = this.props.postId;
+        if (localStorage.getItem(id)) {
+            this.setState({
+                comments: JSON.parse(localStorage.getItem(this.props.postId))
+            });
+        } else {
+            this.setComments();
+        }
     }
-
-
-    commentHandler = e => {
-        this.setState({ comment: e.target.value });
+    componentWillUnmount() {
+        localStorage.setItem(
+            this.props.postId,
+            JSON.stringify(this.state.comments)
+        );
     };
-
-
+    commentHnadler = e => {
+        e.preventDefault();
+        const newComment = { text: this.state.comment, username: 'ryanhamblin' };
+        const comments = this.state.comments.slice();
+        comments.push(newComment);
+        this.setState({ comments, comment: '' });
+        setTimeout(() => {
+            this.setComments();
+        }, 500);
+    };
 
     render() {
         return (
@@ -34,13 +47,11 @@ class CommentSection extends React.Component {
                 <NewComment
                     comment={this.state.comment}
                     changeComment={this.commentHandler}
+                    submitComment={this.handleCommentSubmit}
                 />
             </div>
         );
     }
-
-
-    
 }
 
 CommentSection.propTypes = {

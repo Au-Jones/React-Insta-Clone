@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewComment = props => {
     return (
-        <form>
+        <form onSubmit={props.submitComment}>
             <input
             type='text'
             value={props.comment}
