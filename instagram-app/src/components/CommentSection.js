@@ -13,31 +13,41 @@ class CommentSection extends React.Component {
         };
     }
 
-    componentDidMount() {
-        const id = this.props.postId;
-        if (localStorage.getItem(id)) {
-            this.setState({
-                comments: JSON.parse(localStorage.getItem(this.props.postId))
-            });
-        } else {
-            this.setComments();
-        }
-    }
+    // componentDidMount() {
+    //     const id = this.props.postId;
+    //     if (localStorage.getItem(id)) {
+    //         this.setState({
+    //             comments: JSON.parse(localStorage.getItem(this.props.postId))
+    //         });
+    //     } else {
+    //         this.setComments();
+    //     }
+    // }
     componentWillUnmount() {
+      this.setComments();
+        
+    };
+
+    setComments = (e) => {
         localStorage.setItem(
             this.props.postId,
             JSON.stringify(this.state.comments)
         );
     };
-    commentHnadler = e => {
+
+    commentHandler = e => {
         e.preventDefault();
-        const newComment = { text: this.state.comment, username: 'ryanhamblin' };
-        const comments = this.state.comments.slice();
-        comments.push(newComment);
-        this.setState({ comments, comment: '' });
-        setTimeout(() => {
-            this.setComments();
-        }, 500);
+     const NewCom = {
+         text:this.state.comments,
+         username:localStorage.getItem('user')
+    };
+    
+    const comments = this.state.comments.slice();
+    comments.push(NewCom);
+    this.setState({ comments,comments: ''});
+    setTimeout(()=> {
+        this.setComments();
+    },500);
     };
 
     render() {

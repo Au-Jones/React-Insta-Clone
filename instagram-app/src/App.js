@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PostsPage from './components/PostsPage';
 import Login from './components/Loginpage';
-import withAuthentication from './components/GetAuthentication';
-
+import Authenticate from './components/GetAuthentication';
 
 
 
@@ -17,12 +16,12 @@ class App extends Component {
     render() {
       return (
         <div className="App">
-        <ComponentFromWithAuthenticate />
+        <PostsPage />
         </div>
       );
     }
   }
 
-  const ComponentFromWithAuthenticate = withAuthentication(PostsPage)(Login);
+ 
 
-  export default App;
+  export default Authenticate(App);

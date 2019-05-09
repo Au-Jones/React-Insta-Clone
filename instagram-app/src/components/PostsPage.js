@@ -1,45 +1,46 @@
 import React, { Component } from 'react';
-import dummyData from '../dummy-data';
-import PostContainer from './PostContainer';
-import search from './SearchBar';
+import dummyData from '../../dummy-data';
+import PostsContainer from './components/PostsContainer';
+import SearchBar from './components/SearchBar';
 
-class PostP extends Component {
-    constructor() {
-        super();
-        this.state={
-            post:[],
-            filteredPosts:[]
-        };
-    }
-    componentDidMount() {
-        this.setState({ posts:dummyData});
-    }
-    FindPostHandler = e => {
-        // eslint-disable-next-line
-        const post = this.state.posts.filter(p => {
-            if (p.username.includes(e.target.value)) {
-                return p;
-            }
-        });
-        this.setState({ filteredPosts :post});
+class PostsP extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      filteredPosts: []
     };
-    render() {
-        return(
-            <div className='App'>
-            <search
-            searchTerm={this.state.searchTerm}
-            searchPosts={this.FindPostHandler}
-            />
-            <PostContainer
-            post={
-                this.state.filteredPosts.length >0
-                ?this.state.filteredPosts
-                :this.state.post
-            }
-            />
-            </div>
-        );
-    }
+  }
+  componentDidMount() {
+    this.setState({ posts: dummyData });
+  }
+
+  searchPostsHandler = e => {
+    // eslint-disable-next-line
+    const posts = this.state.posts.filter(p => {
+      if (p.username.includes(e.target.value)) {
+        return p;
+      }
+    });
+    this.setState({ filteredPosts: posts });
+  };
+  render() {
+    return (
+      <div className="App">
+        <SearchBar
+          searchTerm={this.state.searchTerm}
+          searchPosts={this.searchPostsHandler}
+        />
+        <PostsContainer
+          posts={
+            this.state.filteredPosts.length > 0
+              ? this.state.filteredPosts
+              : this.state.posts
+          }
+        />
+      </div>
+    );
+  }
 }
 
-export default PostP;
+export default PostsP;

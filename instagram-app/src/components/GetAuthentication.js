@@ -1,6 +1,8 @@
 import React from 'react';
+import Login from './components/Loginpage';
 
-const withAuthentication = PostsPage => LoginPage =>
+
+const Authenticate = App => 
 class extends React.Component {
     constructor(props) {
         super(props);
@@ -8,7 +10,7 @@ class extends React.Component {
             loggedIn: false
         };
     }
-    componenetDidMount() {
+    componentDidMount() {
         if(!localStorage.getItem('user')) {
             this.setState({loggedIn:false});
         } else{
@@ -17,9 +19,9 @@ class extends React.Component {
     }
 
     render() {
-        if(this.state.loggedIn) return <PostsPage />;
-        return <LoginPage />
+        if(this.state.loggedIn) return <App />;
+        return <loggedIn />
     }
 };
 
-export default withAuthentication;
+export default Authenticate;

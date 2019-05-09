@@ -1,5 +1,13 @@
-
+import styled from 'styled-components';
+import { FlexWrapper } from '../CommentSection/Comment';
 import React from 'react';
+
+const LikeSection = styled.div`
+height:15px;
+width:15px;
+margin:5px;
+padding:10px;
+`;
 
 const LikeSection = props => {
   return [

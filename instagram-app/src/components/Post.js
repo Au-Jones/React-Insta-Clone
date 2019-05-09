@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import CommentSection from './CommentSection';
 import LikeSection from './likeSection';
 import PostTop from './PostTop';
+import styled from 'styled-components';
 
-// import './Posts.css';
+const Pborder = styled.div`
+border: 1px solid black;
+margin: auto 0;
+`;
+
+
+
 
 class Post extends React.Component {
   constructor(props) {
@@ -19,7 +26,7 @@ class Post extends React.Component {
   };
   render() {
     return (
-      <div className="post-border">
+      <Pborder>
         <PostTop
           username={this.props.post.username}
           thumbnailUrl={this.props.post.thumbnailUrl}
@@ -27,7 +34,7 @@ class Post extends React.Component {
         <div className="post-image-wrapper">
           <img
             alt="post thumbnail"
-            className="post-image"
+            className="postimage"
             src={this.props.post.imageUrl}
           />
         </div>
@@ -39,7 +46,7 @@ class Post extends React.Component {
           postId={this.props.post.imageUrl}
           comments={this.props.post.comments}
         />
-      </div>
+      </Pborder>
     );
   }
 }
